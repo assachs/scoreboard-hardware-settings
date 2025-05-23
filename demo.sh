@@ -1,2 +1,3 @@
+#!/bin/bash
 . /home/pi/scoreboard-hardware-settings/matrix.sh
 sudo /home/pi/rpi-rgb-led-matrix/examples-api-use/demo -D4 --led-rows 64 --led-cols=64 --led-chain=$CHAINLENGTH --led-slowdown-gpio=5 --led-parallel=$PARALLEL --led-gpio-mapping=$ADAPTER  --led-multiplexing=$MULTIPLEXING --led-show-refresh

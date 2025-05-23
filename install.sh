@@ -1,7 +1,7 @@
-mkdir -p /home/pi/matrix-hardware-settings
-cp demo.sh /home/pi/matrix-hardware-settings
+mkdir -p /home/pi/scoreboard-hardware-settings
+cp demo.sh /home/pi/scoreboard-hardware-settings
 
-if [ ! -f /path/to/file ]
+if [ ! -f /home/pi/scoreboard-hardware-settings/matrix.sh ]
 then
-  cp matrix.sh /home/pi/matrix-hardware-settings
+  cp matrix.sh /home/pi/scoreboard-hardware-settings
 fi

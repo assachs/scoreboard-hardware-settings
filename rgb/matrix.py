@@ -57,6 +57,14 @@ class RunText(SampleBase):
         self.sbf.loadfont("auszeit")
 
 
+    def readconfig(self):
+        if os.environ['PARALLEL'] == "2":
+            self.backoffsetx = 0
+            self.backoffsety = 64
+        if os.environ['BACK'] == "STATUS":
+            self.backoffsetx = 128
+            self.backcontent = "STATUS"
+
 
     def messageShow(self):
         logger.debug("Updating display")
@@ -72,17 +80,10 @@ class RunText(SampleBase):
         self.sbf.drawtextLeft(offscreen_canvas, "teamnamen", offsetx, offsety + 10, 'w', socket.gethostname())
 
         row = 10
-        first = False
-        for adr in self.sbf.getAdresses():
-            x = 0
-            if first:
-                first = False
-                x = 100
-            else:
-                row = row + 10
-                first = True
 
-            self.sbf.drawtextLeft(offscreen_canvas, "teamnamen", offsetx + x, offsety + row, 'w', adr)
+        for adr in self.sbf.getAdresses():
+            row = row + 10
+            self.sbf.drawtextLeft(offscreen_canvas, "teamnamen", offsetx, offsety + row, 'w', adr)
 
 
 
@@ -118,7 +119,7 @@ class RunText(SampleBase):
 
     def run(self):
         logger.debug(">run")
-
+        self.readconfig()
         thread = Thread(target=self.refresh)
         thread.daemon = True
         thread.start()

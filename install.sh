@@ -8,6 +8,8 @@ then
   cp scoreboard-hardware-settings-temp/matrix.sh /home/pi/scoreboard-hardware-settings
 fi
 sudo apt install python3-netifaces
+sudo apt install fonts-freefont-otf python3-websocket otf2bdf
+
 sudo cp /home/pi/scoreboard-hardware-settings-temp/matrix.service /etc/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl enable matrix.service

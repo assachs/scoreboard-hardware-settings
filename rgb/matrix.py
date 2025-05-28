@@ -17,9 +17,6 @@ from rgbmatrix import graphics
 
 sys.path.insert(0, '/home/pi/ably-python/')
 
-from ably import AblyRealtime
-
-from stomp_ws.client import Client
 import json
 import os
 import logging
